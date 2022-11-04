@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     routeRules: {
         '/_nuxt/**': { cors: true },
     },
+    ssr: false, // why if not set to false its not working anymore ?
     vite: {
         plugins: [
             federation({
