@@ -8,6 +8,7 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@nuxt/webpack-builder": "^3.0.0-rc.13",
     "@originjs/vite-plugin-federation": "^1.1.11",
     "nuxt": "^3.0.0-rc.13",
     "webpack": "^5.74.0"

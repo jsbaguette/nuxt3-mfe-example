@@ -1,11 +1,14 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
-import federation from "@originjs/vite-plugin-federation";
+// import federation from "@originjs/vite-plugin-federation";
 import webpack from "webpack"
+
+// import { } from "@nuxt/webpack-builder"
 
 export default defineNuxtConfig({
     // experimental: {
     //     asyncEntry: true
     // },
+    builder: "webpack",
     routeRules: {
         '/_nuxt/**': { cors: true },
     },
@@ -19,7 +22,7 @@ export default defineNuxtConfig({
                 }
             })
         ]
-    }
+    },
     // ssr: false, // why if not set to false its not working anymore ?
     // vite: {
     //     plugins: [

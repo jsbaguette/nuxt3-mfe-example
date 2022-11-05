@@ -1,4 +1,4 @@
-import federation from "@originjs/vite-plugin-federation";
+// import federation from "@originjs/vite-plugin-federation";
 import webpack from "webpack"
 
 export default defineNuxtConfig({
@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     routeRules: {
         '/_nuxt/**': { cors: true },
     },
+    builder: "webpack",
     webpack: {
         plugins: [
             new webpack.container.ModuleFederationPlugin({
@@ -18,7 +19,7 @@ export default defineNuxtConfig({
                 }
             })
         ]
-    }
+    },
     // ssr: false,
     // vite: {
     //     plugins: [
