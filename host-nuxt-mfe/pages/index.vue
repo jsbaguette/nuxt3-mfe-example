@@ -1,13 +1,14 @@
 <template>
     <div>
         home bost
-        <RemoteButton />
+        <!-- <RemoteButton /> -->
     </div>
 </template>
 
 <script setup>
-import { defineAsyncComponent } from "vue";
-const RemoteButton = defineAsyncComponent(() => import("remote_app/Button"));
+import RemoteButton from "remoteApp/Button"
+// import { defineAsyncComponent } from "vue";
+// const RemoteButton = defineAsyncComponent(() => import("remoteApp/Button"));
 // import RemoteButton from "remote_app/Button"
 
 // console.log(RemoteButton)

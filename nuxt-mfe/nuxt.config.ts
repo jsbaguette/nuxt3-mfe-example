@@ -1,23 +1,34 @@
 import federation from "@originjs/vite-plugin-federation";
+import webpack from "webpack"
 
 export default defineNuxtConfig({
-    experimental: {
-        asyncEntry: true
-    },
-    // why this is working in the context of non host
-    // ssr: false,
+    // experimental: {
+    //     asyncEntry: true
+    // },
     routeRules: {
         '/_nuxt/**': { cors: true },
     },
-    vite: {
+    webpack: {
         plugins: [
-            federation({
-                name: 'remote-app',
+            new webpack.container.ModuleFederationPlugin({
+                name: 'remoteApp',
                 filename: 'remoteEntry.js',
                 exposes: {
                     './Button': './components/Button.vue',
-                },
+                }
             })
         ]
     }
+    // ssr: false,
+    // vite: {
+    //     plugins: [
+    //         federation({
+    //             name: 'remote-app',
+    //             filename: 'remoteEntry.js',
+    //             exposes: {
+    //                 './Button': './components/Button.vue',
+    //             },
+    //         })
+    //     ]
+    // }
 })
