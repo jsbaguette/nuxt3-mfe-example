@@ -5,9 +5,9 @@ import webpack from "webpack"
 // import { } from "@nuxt/webpack-builder"
 
 export default defineNuxtConfig({
-    // experimental: {
-    //     asyncEntry: true
-    // },
+    experimental: {
+        asyncEntry: true
+    },
     builder: "webpack",
     routeRules: {
         '/_nuxt/**': { cors: true },
@@ -18,12 +18,19 @@ export default defineNuxtConfig({
                 name: 'host',
                 filename: 'remoteEntry.js',
                 remotes: {
-                    remoteApp: "remoteApp@http://localhost:3000/_nuxt/remoteEntry.js",
+                    remoteapp: "remoteapp@http://localhost:3000/_nuxt/remoteEntry.js",
+                },
+                shared: {
+                    "vue": {
+                        singleton: true,
+                        eager: false
+
+                    }
                 }
             })
         ]
     },
-    // ssr: false, // why if not set to false its not working anymore ?
+    ssr: false, // why if not set to false its not working anymore ?
     // vite: {
     //     plugins: [
     //         federation({

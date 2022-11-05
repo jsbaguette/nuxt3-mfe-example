@@ -2,9 +2,9 @@
 import webpack from "webpack"
 
 export default defineNuxtConfig({
-    // experimental: {
-    //     asyncEntry: true
-    // },
+    experimental: {
+        asyncEntry: true
+    },
     routeRules: {
         '/_nuxt/**': { cors: true },
     },
@@ -12,15 +12,21 @@ export default defineNuxtConfig({
     webpack: {
         plugins: [
             new webpack.container.ModuleFederationPlugin({
-                name: 'remoteApp',
+                name: 'remoteapp',
                 filename: 'remoteEntry.js',
                 exposes: {
                     './Button': './components/Button.vue',
+                },
+                shared: {
+                    "vue": {
+                        singleton: true,
+                        eager: false
+                    }
                 }
             })
-        ]
+        ],
     },
-    // ssr: false,
+    ssr: false,
     // vite: {
     //     plugins: [
     //         federation({
