@@ -5,7 +5,7 @@ export default defineNuxtConfig({
         asyncEntry: true
     },
     // why this is working in the context of non host
-    ssr: false,
+    // ssr: false,
     routeRules: {
         '/_nuxt/**': { cors: true },
     },
